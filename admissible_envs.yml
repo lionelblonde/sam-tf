@@ -1,0 +1,20 @@
+environments:
+    mujoco:
+        InvertedPendulum-v2: InvertedPendulum-v2_s0_mode_d32.npz
+        InvertedDoublePendulum-v2: InvertedDoublePendulum-v2_s0_mode_d32.npz
+        Reacher-v2: Reacher-v2_s0_mode_d32.npz
+        Hopper-v2: Hopper-v2_s0_mode_d32.npz
+        HalfCheetah-v2: HalfCheetah-v2_s0_mode_d32.npz
+        Walker2d-v2: Walker2d-v2_s0_mode_d32.npz
+        Ant-v2: Ant-v2_s0_mode_d32.npz
+        Humanoid-v2: Humanoid-v2_s0_mode_d32.npz
+        HumanoidStandup-v2: ~
+    ale:
+        BreakoutNoFrameskip-v4: ~
+        FrostbiteNoFrameskip-v4: ~
+        MsPacmanNoFrameskip-v4: ~
+        QbertNoFrameskip-v4: ~
+        SpaceInvadersNoFrameskip-v4: ~
+        SeaquestNoFrameskip-v4: ~
+        MontezumaRevengeNoFrameskip-v4: ~
+        SolarisNoFrameskip-v4: ~
