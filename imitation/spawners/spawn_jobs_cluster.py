@@ -384,15 +384,15 @@ def get_rand_hps(args, meta, num_seeds):
         raise RuntimeError("unknown benchmark")
 
     # Duplicate every hyperparameter map of the list to span the range of seeds
-    output = [dup_hps_for_seed(hpmap, seed)
+    output = [dup_hps_for_seed(hpmap_, seed)
               for seed in range(num_seeds)
-              for hpmap in hpmaps]
+              for hpmap_ in hpmaps]
 
     if args.task in ['gail', 'sam']:
         # Duplicate every hyperparameter map of the list to span the range of num of demos
-        output = [dup_hps_for_num_demos(hpmap, num_demos)
+        output = [dup_hps_for_num_demos(hpmap_, num_demos)
                   for num_demos in parse_num_demos(args.num_demos)
-                  for hpmap in output]
+                  for hpmap_ in output]
 
     return output
 
@@ -659,15 +659,15 @@ def get_spectrum_hps(args, meta, num_seeds):
         raise RuntimeError("unknown benchmark")
 
     # Duplicate every hyperparameter map of the list to span the range of seeds
-    output = [dup_hps_for_seed(hpmap, seed)
+    output = [dup_hps_for_seed(hpmap_, seed)
               for seed in range(num_seeds)
-              for hpmap in hpmaps]
+              for hpmap_ in hpmaps]
 
     if args.task in ['gail', 'sam']:
         # Duplicate every hyperparameter map of the list to span the range of num of demos
-        output = [dup_hps_for_num_demos(hpmap, num_demos)
+        output = [dup_hps_for_num_demos(hpmap_, num_demos)
                   for num_demos in parse_num_demos(args.num_demos)
-                  for hpmap in output]
+                  for hpmap_ in output]
     return output
 
 
