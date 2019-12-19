@@ -632,9 +632,10 @@ class SAMAgent(object):
         """Train the SAM agent"""
         # Get a batch of transitions from the replay buffer
         if self.hps.n_step_returns:
-            batch = self.replay_buffer.n_step_lookahead_sample(batch_size=self.hps.batch_size,
-                                                               n=self.hps.n,
-                                                               gamma=self.hps.gamma)
+            out = self.replay_buffer.n_step_lookahead_sample(batch_size=self.hps.batch_size,
+                                                             n=self.hps.n,
+                                                             gamma=self.hps.gamma)
+            batch, batchn = out
         else:
             batch = self.replay_buffer.sample(batch_size=self.hps.batch_size)
 
@@ -653,10 +654,10 @@ class SAMAgent(object):
                                     self.td_len: onesies})
 
         if self.hps.n_step_returns:
-            targ_q_n = self.get_targ_q({self.obs1: batch['obs1'],
-                                        self.rews: batch['rews'],
-                                        self.dones1: batch['dones1'].astype(dtype='float32'),
-                                        self.td_len: batch['td_len']})
+            targ_q_n = self.get_targ_q({self.obs1: batchn['obs1'],
+                                        self.rews: batchn['rews'],
+                                        self.dones1: batchn['dones1'].astype(dtype='float32'),
+                                        self.td_len: batchn['td_len']})
 
         if self.hps.rmsify_rets and self.hps.enable_popart:
             # Compute old return statistics

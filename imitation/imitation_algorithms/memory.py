@@ -172,7 +172,7 @@ class RB(object):
         transitions = self.sample(batch_size=batch_size)
         # Expand each transition w/ a n-step TD lookahead
         lookahead_batch = self.lookahead(transitions=transitions, n=n, gamma=gamma)
-        return lookahead_batch
+        return transitions, lookahead_batch
 
     def append(self, obs0, acs, rews, obs1, dones1, is_demo=False):
         """Add transition to the replay buffer"""
