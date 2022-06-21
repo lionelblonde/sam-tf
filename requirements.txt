@@ -28,7 +28,7 @@ more-itertools==5.0.0
 mpi4py==3.0.0
 -e git+https://github.com/openai/mujoco-py.git@399a22b1384a078f8cd02d10486cff379cdf5985#egg=mujoco_py
 nbformat==4.4.0
-numpy==1.16.1
+numpy==1.22.0
 opencv-python==4.0.0.21
 pandas==0.24.1
 Pillow==5.4.1
